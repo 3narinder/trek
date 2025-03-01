@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.padding-x {
+  @apply lg:px-32 md:px-16 px-8;
+}
