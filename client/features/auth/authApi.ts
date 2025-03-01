@@ -1,3 +1,6 @@
+import axios from "axios";
+const API_URL = "http://localhost:8000/auth";
+
 export const registerUser = async (formData: {
   fullName: string;
   email: string;
@@ -5,23 +8,13 @@ export const registerUser = async (formData: {
   password: string;
 }) => {
   try {
-    const response = await fetch("http://localhost:8000/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
+    const response = await axios.post(`${API_URL}/register`, formData, {
+      withCredentials: true, // ensures cookies are passed
     });
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || "Registration failed");
-    }
-
-    return data;
+    return response.data;
   } catch (error: any) {
-    throw new Error(error.message || "Something went wrong");
+    throw new Error(error.response?.data?.message || "Registration failed");
   }
 };
 
@@ -30,22 +23,14 @@ export const loginUser = async (credentials: {
   password: string;
 }) => {
   try {
-    const response = await fetch("http://localhost:8000/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
+    const response = await axios.post(`${API_URL}/login`, credentials, {
+      withCredentials: true, // ensures cookies are passed
     });
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || "Login failed");
-    }
-
-    return data;
+    return response.data;
   } catch (error: any) {
-    throw new Error(error.message || "Something went wrong");
+    throw new Error(
+      error.response?.data?.message || "Invalid email or password"
+    );
   }
 };
