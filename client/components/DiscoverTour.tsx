@@ -2,10 +2,10 @@ import Image from "next/image";
 import React from "react";
 import CustomButton from "./myComponents/CustomButtons";
 
-const Discover = () => {
+const DiscoverTour = () => {
   return (
-    <div className="bg-white lg:py-16 px-8 flex flex-col lg:pl-32 lg:flex-row  lg:justify-between">
-      <div className="flex flex-col lg:w-1/3 py-10">
+    <div className="bg-white lg:py-16 py-8 flex flex-col lg:pl-32 lg:flex-row  lg:justify-between">
+      <div className="flex flex-col lg:w-[40%] py-10 px-8">
         {/* section heading and text */}
         <div className="flex flex-col">
           <p className="text-sm font-semibold text-neutral-4 ml-1 mb-4 capitalize">
@@ -90,4 +90,4 @@ const Discover = () => {
   );
 };
 
-export default Discover;
+export default DiscoverTour;
