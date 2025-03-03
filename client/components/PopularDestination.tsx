@@ -28,7 +28,7 @@ const destination = [
   },
   {
     id: 4,
-    image: "/destination-4.png",
+    image: "/destination-2.png",
     price: 800,
     place: "Africa",
     tourCount: "09",
@@ -93,7 +93,7 @@ const PopularDestination = () => {
   };
 
   return (
-    <section className="bg-neutral-8 pt-8 pb-24">
+    <section className="bg-neutral-8 pt-8 lg:pb-24">
       <div className="flex items-end justify-between lg:px-32 px-8">
         <div className="flex flex-col">
           <p className="text-sm font-semibold text-neutral-4 ml-1 mb-1">
