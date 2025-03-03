@@ -13,11 +13,22 @@ import { fetchAuthenticatedUser } from "@/features/users/UserSlice";
 
 const Navigation = () => {
   const [isShow, setIsShow] = useState(false);
+  const [isInitialLoading, setIsInitialLoading] = useState(true); // Track initial load
   const dispatch = useDispatch();
   const { user, loading, error } = useSelector((state: any) => state.user);
 
   useEffect(() => {
-    dispatch(fetchAuthenticatedUser());
+    const loadUser = async () => {
+      try {
+        await dispatch(fetchAuthenticatedUser()).unwrap(); // Fetch user with unwrap for error handling
+      } catch (err) {
+        console.error("Failed to fetch user:", err);
+      } finally {
+        setIsInitialLoading(false); // Resolve loading state
+      }
+    };
+
+    loadUser();
   }, [dispatch]);
 
   useEffect(() => {
@@ -73,7 +84,22 @@ const Navigation = () => {
       </div>
 
       <>
-        {user ? (
+        {isInitialLoading ? (
+          <div className="flex items-center gap-8 w-56">
+            <div className="w-[110px] h-12 bg-gray-300 rounded-full animate-pulse" />{" "}
+            {/* Skeleton for buttons */}
+            <div className="relative">
+              <Image
+                src="/icons/notification-bell.png"
+                alt="notification"
+                width={18}
+                height={19}
+              />
+              <div className="absolute -top-3 -right-2.5 bg-gray-300 rounded-full w-3 h-3"></div>
+            </div>
+            <div className="w-[45px] h-10 bg-gray-300 rounded-full animate-pulse" />{" "}
+          </div>
+        ) : user ? (
           <div className="flex items-center justify-center gap-8">
             <div className="lg:flex hidden">
               <CustomButton text="Wishlist" type="border" />

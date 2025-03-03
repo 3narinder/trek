@@ -5,3 +5,7 @@
 .padding-x {
   @apply lg:px-32 md:px-16 px-8;
 }
+
+#slider-box {
+  display: flex !important;
+}

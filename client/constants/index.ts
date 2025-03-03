@@ -1,6 +1,6 @@
 export const NavLinks = [
   { href: "/tours", key: "tours", label: "Tours" },
-  { href: "/destinations", key: "destination", label: "Destination" },
+  { href: "/destination", key: "destination", label: "Destination" },
   { href: "/virtual-tour", key: "virtual tour", label: "Virtual tour" },
   { href: "/blog", key: "blog", label: "Blog" },
   { href: "/about", key: "about", label: "About" },
