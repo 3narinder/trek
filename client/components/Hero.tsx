@@ -19,12 +19,15 @@ const Hero = () => {
 
           <div className="absolute inset-0 bg-gradient-to-b from-[rgba(27,88,255,0.4)] via-[rgba(250,250,250,0.02)] to-[rgba(250,250,250,0.1)]"></div>
 
-          <div className="absolute flex flex-col justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-center h-full w-[480px]">
-            <h1 className="text-neutral-8 text-6xl font-semibold leading-[72px] tracking-tighter">
+          <div className="absolute flex flex-col justify-center items-center md:top-1/2 top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-center h-full md:w-[480px] w-[350px] px-4">
+            <h1
+              className="text-neutral-8 lg:text-6xl  md:text-5xl
+             text-4xl font-semibold leading-[44px] md:tracking-tighter"
+            >
               Discover the most engaging places
             </h1>
 
-            <p className="text-neutral-8 text-lg mt-4 mb-8">
+            <p className="text-neutral-8 md:text-lg text-sm mt-4 mb-8">
               Less planning, 45,000 trips are ready for you
             </p>
 

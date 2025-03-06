@@ -9,6 +9,7 @@ interface ButtonProps {
   iconPosition?: "left" | "right";
   bgColor?: string;
   borderColor?: string;
+  textColor?: string;
 }
 
 const CustomButton = ({
@@ -18,17 +19,20 @@ const CustomButton = ({
   iconPosition = "left",
   bgColor,
   borderColor,
+  textColor,
 }: ButtonProps) => {
   let buttonClasses = "";
 
   switch (type) {
     case "fill":
-      buttonClasses = `${bgColor || "bg-primary-1"} text-neutral-8 px-6 py-3`;
+      buttonClasses = `${bgColor || "bg-primary-1"} ${
+        textColor || "text-neutral-8"
+      }  px-6 py-3`;
       break;
     case "border":
-      buttonClasses = `border-2 ${
-        borderColor || "border-neutral-6"
-      } text-neutral-2 px-6 py-3`;
+      buttonClasses = `border-2 ${borderColor || "border-neutral-6"} ${
+        textColor || "text-neutral-2"
+      }  px-6 py-3`;
       break;
     case "hero":
       buttonClasses = `${

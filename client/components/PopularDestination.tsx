@@ -28,7 +28,7 @@ const destination = [
   },
   {
     id: 4,
-    image: "/destination-2.png",
+    image: "/destination-4.png",
     price: 800,
     place: "Africa",
     tourCount: "09",
