@@ -8,7 +8,7 @@ dotenv.config();
 const JWT_SECRET = process.env.JWT_SECRET;
 
 export const register = async (req, res) => {
-  const { fullName, email, password, contact } = req.body;
+  const { fullName, email, password, contact, role } = req.body;
 
   try {
     const userExists = await User.findOne({ email });
@@ -24,6 +24,7 @@ export const register = async (req, res) => {
       email,
       password: hashedPassword,
       contact,
+      role,
     });
 
     const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "1h" });
