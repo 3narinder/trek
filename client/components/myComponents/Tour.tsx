@@ -8,16 +8,16 @@ import { motion } from "framer-motion";
 interface TourProps {
   tour: {
     _id: number;
-    images: string[]; // Changed from 'image' to 'images' to match schema
+    images: string[];
     name: string;
-    places: { name: string }[]; // Updated to reflect populated Place schema
+    places: { name: string }[];
     actualPrice: number;
     discountPrice: number;
     startDate: string;
     endDate: string;
     rating: number;
   };
-  wished?: boolean; // Changed to boolean to match toggle behavior
+  wished?: boolean;
   setWished?: (id: number) => void;
 }
 
@@ -51,7 +51,7 @@ const Tour = ({ tour, wished, setWished }: TourProps) => {
           {wished ? (
             <GoHeartFill className="text-primary-3 text-xl" /> // Filled heart when wished
           ) : (
-            <GoHeart className="text-primary-3 text-xl" /> // Empty heart when not wished
+            <GoHeart className="text-primary-3 text-xl" />
           )}
         </div>
       )}
@@ -63,7 +63,7 @@ const Tour = ({ tour, wished, setWished }: TourProps) => {
           isHovered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
         }
         transition={{ duration: 0.4, delay: isHovered ? 0.1 : 0.1 }}
-        className="absolute top-[30%] left-[50%] transform -translate-x-1/2"
+        className="absolute top-[30%] left-[30%] transform -translate-x-1/2"
       >
         <CustomButton
           text="Explore"

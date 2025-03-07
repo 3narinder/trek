@@ -9,3 +9,41 @@
 #slider-box {
   display: flex !important;
 }
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px; /* Larger size */
+  height: 16px;
+  background: #4b5563;
+  border: 2px solid #d7dce4;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(190, 168, 168, 0.2); /* Adds depth */
+  position: relative;
+  z-index: 30;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  background: #4b5563;
+  border: 2px solid #e4e7eb;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(229, 225, 225, 0.2);
+  position: relative;
+  z-index: 30;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 24px;
+  height: 24px;
+  background: #4b5563;
+  border: 2px solid #1f2937;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 30;
+}

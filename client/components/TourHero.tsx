@@ -15,7 +15,7 @@ const TourHero = () => {
           priority
         />
 
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-[rgba(133,160,235,0.4)] via-[rgba(247, 241, 241, 0)] to-[rgba(250,250,250,0.1)]"></div> */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(133,160,235,0.4)] via-[rgba(248, 243, 243, 0.351)] to-[rgba(255,255,255,0.1)]"></div>
 
         <div className="absolute flex flex-col justify-center items-center md:top-1/2 top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-center h-full md:w-[480px] w-[350px] px-4">
           <h1

@@ -30,7 +30,7 @@ const DiscoverWeekly = () => {
 
   // Fetch tours when the component mounts
   useEffect(() => {
-    dispatch(getAllTours({ page: "1", limit: "10" })); // Initial fetch with default params
+    dispatch(getAllTours()); // Initial fetch with default params
   }, [dispatch]);
 
   const settings = {
