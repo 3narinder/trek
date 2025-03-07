@@ -8,7 +8,6 @@ export const getAuthenticatedUser = async () => {
     const response = await axios.get(`${API_URL}/me`, {
       withCredentials: true,
     });
-    console.log("API response:", response.data); // Log the response
     return response.data;
   } catch (error: any) {
     console.error("API error:", error.response?.data || error.message);

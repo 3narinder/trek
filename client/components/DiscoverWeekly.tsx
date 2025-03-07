@@ -1,84 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import Tour from "./myComponents/Tour";
+import { getAllTours } from "@/features/tours/TourSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const tabs = [
   { id: "Domestic", label: "Domestic" },
   { id: "Foreign", label: "Foreign" },
-];
-
-const tours = [
-  {
-    id: 1,
-    image: "/destination-1.png",
-    originalPrice: 699,
-    discountedPrice: 540,
-    tour: "Venice, Rome & Milan",
-    place: "London",
-    startDate: "Tue, Jul 20",
-    endDate: "Fri, Jul 23",
-    rating: 4.9,
-  },
-  {
-    id: 2,
-    image: "/destination-2.png",
-    originalPrice: 750,
-    discountedPrice: 620,
-    tour: "Bangkok, Tokyo & Seoul",
-    place: "Asia",
-    startDate: "Mon, Aug 15",
-    endDate: "Thu, Aug 18",
-    rating: 4.8,
-  },
-  {
-    id: 3,
-    image: "/destination-3.png",
-    originalPrice: 850,
-    discountedPrice: 700,
-    tour: "Sydney, Melbourne & Perth",
-    place: "Australia",
-    startDate: "Wed, Sep 5",
-    endDate: "Sat, Sep 8",
-    rating: 4.7,
-  },
-  {
-    id: 4,
-    image: "/destination-2.png",
-    originalPrice: 950,
-    discountedPrice: 800,
-    tour: "Cape Town, Cairo & Nairobi",
-    place: "Africa",
-    startDate: "Fri, Oct 10",
-    endDate: "Mon, Oct 13",
-    rating: 4.6,
-  },
-  {
-    id: 5,
-    image: "/destination-5.png",
-    originalPrice: 1100,
-    discountedPrice: 900,
-    tour: "New York, LA & Miami",
-    place: "America",
-    startDate: "Sun, Nov 12",
-    endDate: "Wed, Nov 15",
-    rating: 4.9,
-  },
-  {
-    id: 6,
-    image: "/destination-1.png",
-    originalPrice: 1200,
-    discountedPrice: 1000,
-    tour: "South Pole Adventure",
-    place: "Antarctica",
-    startDate: "Tue, Dec 5",
-    endDate: "Fri, Dec 8",
-    rating: 4.5,
-  },
 ];
 
 const DiscoverWeekly = () => {
@@ -89,6 +22,16 @@ const DiscoverWeekly = () => {
   const [wishedTour, setWishedTour] = useState([]);
 
   const sliderRef = useRef(null);
+
+  const dispatch = useDispatch();
+  const { tours, loading, error, pagination } = useSelector(
+    (state) => state.tour
+  );
+
+  // Fetch tours when the component mounts
+  useEffect(() => {
+    dispatch(getAllTours({ page: "1", limit: "10" })); // Initial fetch with default params
+  }, [dispatch]);
 
   const settings = {
     dots: false,
